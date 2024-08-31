@@ -3,31 +3,88 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --page-margin-x: 64px;
+
+  /* Font Sizes */
+  --logo-font: 1.5rem;
+  --menu-font: 1.125rem;
+  --btn-font: 1.125rem;
+  --section-title-font: 2rem;
+  --section-subtitle-font: 1.25rem;
+  --input-font: 1.125rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  body {
+    @apply bg-background text-foreground scroll-smooth;
+  }
+
+  * {
+    @apply box-border;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+@layer components {
+  .btn {
+    @apply text-btn-font font-medium h-fit duration-150 hover:bg-accent hover:text-foreground active:scale-95 disabled:bg-gray-600 disabled:text-white disabled:cursor-not-allowed;
+  }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .btn-xs {
+    @apply w-fit px-4 py-1.5 rounded-md;
+  }
+
+  .btn-sm {
+    @apply w-fit px-5 py-1.5 rounded-md;
+  }
+
+  .btn-base {
+    @apply w-fit px-8 py-2 rounded-md;
+  }
+
+  .btn-lg {
+    @apply w-fit px-12 py-2 rounded-lg;
+  }
+
+  .btn-xl {
+    @apply w-fit px-14 py-2 rounded-lg;
+  }
+
+  .btn-full {
+    @apply w-full px-12 py-2 rounded-lg;
+  }
+
+  .btn-flex {
+    @apply flex gap-x-1 items-center;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-background;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-foreground;
+  }
+
+  .btn-danger {
+    @apply bg-danger text-black;
+  }
+
+  .base-styled-link {
+    @apply font-medium duration-150 hover:text-accent;
+  }
+
+  .menu-flex-link {
+    @apply flex flex-wrap items-center gap-x-1 w-fit text-menu-font font-medium duration-150 hover:text-accent hover:underline hover:underline-offset-2 mobile-lg:max-w-[8ch];
+  }
+
+  .menu-link {
+    @apply max-w-[16ch] break-all text-menu-font font-medium duration-150 hover:text-accent hover:underline hover:underline-offset-2;
+  }
+  .menu-link.active {
+    @apply text-accent underline underline-offset-1 hover:underline-offset-2;
+  }
+
+  .inp-base-classes {
+    @apply w-full px-2 py-1.5 text-input-font leading-8 text-black font-semibold border-2 border-dimBorder rounded-md bg-secondaryBackground outline-none placeholder:text-secondaryForeground focus:bg-lightBackground focus:border-secondaryForeground;
   }
 }

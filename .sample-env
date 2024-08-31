@@ -1,0 +1,13 @@
+# Database secrets
+DB_NAME =
+DB_USER =
+DB_PWD =
+DB_HOST =
+DB_PORT =
+
+# Auth secrets
+AUTH_SECRET=
+
+# GITHUB OAuth secrets
+AUTH_GITHUB_ID=
+AUTH_GITHUB_SECRET=
